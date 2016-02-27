@@ -9,3 +9,7 @@ user node['user']['credentials']['username'] do
   password node['user']['credentials']['password']
   manage_home true
 end
+
+execute 'add_sudo_user' do
+  command "sudo adduser #{node['user']['credentials']['username']} sudo"
+end
