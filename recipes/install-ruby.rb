@@ -12,6 +12,7 @@ rbenv_ruby "#{node['ruby']['version']}"
 
 execute 'rbenv_config_path_01' do
   command "echo PATH=/opt/rbenv/versions/#{node['ruby']['version']}/bin:$PATH >> #{node['user']['homedir']}/.profile"
+  returns [0, 1]
 end
 
 execute 'ruby_global_setup' do
@@ -24,4 +25,4 @@ directory '/opt/rbenv' do
   recursive true
 end
 
-gem_package 'bundler' 
+gem_package 'bundler'

@@ -1,68 +1,69 @@
 rails-node Cookbook
 ===================
-TODO: Enter the cookbook description here.
+The purpose of this cookbook is to make spinning up a prod or dev rails instance a snap.
 
-e.g.
-This cookbook makes your favorite breakfast sandwich.
-
-Requirements
-------------
-TODO: List your cookbook requirements. Be sure to include any requirements this cookbook has on platforms, libraries, other cookbooks, packages, operating systems, etc.
-
-e.g.
-#### packages
-- `toaster` - rails-node needs toaster to brown your bagel.
 
 Attributes
 ----------
-TODO: List your cookbook attributes here.
 
-e.g.
 #### rails-node::default
 <table>
   <tr>
-    <th>Key</th>
+    <th>Attribute</th>
     <th>Type</th>
     <th>Description</th>
     <th>Default</th>
   </tr>
   <tr>
-    <td><tt>['rails-node']['bacon']</tt></td>
-    <td>Boolean</td>
-    <td>whether to include bacon</td>
-    <td><tt>true</tt></td>
+    <td><tt>['user']['credentials']['username']</tt></td>
+    <td>String</td>
+    <td>Default username</td>
+    <td><tt>railsadmin</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['user']['credentials']['group']</tt></td>
+    <td>String</td>
+    <td>Default user group</td>
+    <td><tt>railsadmin</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['user']['credentials']['password']</tt></td>
+    <td>String</td>
+    <td>Default user password</td>
+    <td><tt>railsadmin</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['user']['homedir']</tt></td>
+    <td>String</td>
+    <td>Default user home directory</td>
+    <td><tt>/home/railsadmin</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['user']['uid']</tt></td>
+    <td>String</td>
+    <td>Default user ID</td>
+    <td><tt>0630</tt></td>
   </tr>
 </table>
 
 Usage
 -----
-#### rails-node::default
-TODO: Write usage instructions for each cookbook.
+#### rails-node::dev
+This will provision a rails dev node that includes the following:
 
-e.g.
-Just include `rails-node` in your node's `run_list`:
+* nginx
+* unicorn
+* Ruby on Rails
+* PostgreSQL
 
-```json
-{
-  "name":"my_node",
-  "run_list": [
-    "recipe[rails-node]"
-  ]
-}
-```
+#### rails-node::prod
+This will provision a production rails instance. The difference between the dev and prod instances is that the prod instances do not contain a database, as the database should be hosted on another instance.
 
-Contributing
-------------
-TODO: (optional) If this is a public cookbook, detail the process for contributing. If this is a private cookbook, remove this section.
+* nginx
+* unicorn
+* Ruby on Rails
 
-e.g.
-1. Fork the repository on Github
-2. Create a named feature branch (like `add_component_x`)
-3. Write your change
-4. Write tests for your change (if applicable)
-5. Run the tests, ensuring they all pass
-6. Submit a Pull Request using Github
 
-License and Authors
+Author
 -------------------
-Authors: TODO: List authors
+Cameron Testerman - infiniteloopband@gmail.com
