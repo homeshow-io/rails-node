@@ -10,5 +10,4 @@ depends          'apt'
 depends          'rbenv'
 depends          'openssl'
 depends          'postgresql'
-
-
+depends          'database'
