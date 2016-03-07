@@ -2,6 +2,8 @@ execute 'logindefs' do
   command "echo \"CREATE_HOME yes\" >> /etc/login.defs" 
 end
 
+chef_gem 'ruby-shadow'
+
 user node['user']['credentials']['username'] do
   comment 'Cameron Testerman'
   uid node['user']['uid']

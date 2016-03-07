@@ -8,5 +8,7 @@ version          '0.1.0'
 
 depends          'apt'
 depends          'rbenv'
+depends          'openssl'
+depends          'postgresql'
 
 

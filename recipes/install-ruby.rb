@@ -17,6 +17,7 @@ end
 
 execute 'ruby_global_setup' do
   command "/opt/rbenv/bin/rbenv global #{node['ruby']['version']}"
+  returns [0, 1]
 end
 
 directory '/opt/rbenv' do
