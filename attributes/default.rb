@@ -23,4 +23,6 @@ default['rbenv']['bin']                       = '/opt/rbenv/bin/rbenv'
 default['rbenv']['dir']                       = '/opt/rbenv'
 
 #postgres attributes
-default['postgresql']['password']['postgres'] = ''
+default['postgresql']['password']['postgres'] = 'puggle42'
+default['postgresql']['dbname']               = 'homeshow'
+default['postgresql']['dbuser']               = 'homeshow'

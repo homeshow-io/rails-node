@@ -21,8 +21,8 @@ execute 'ruby_global_setup' do
 end
 
 directory '/opt/rbenv' do
-  owner node['user']['credentials']['username']
-  group node['user']['credentials']['group']
+  owner     node['user']['credentials']['username']
+  group     node['user']['credentials']['group']
   recursive true
 end
 
