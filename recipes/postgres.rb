@@ -1,3 +1,13 @@
+#
+# Cookbook Name:: rails-node
+# Recipe:: postgres
+# Author:: Cameron Testerman - camerontesterman@hotmail.com
+#
+# Copyright 2016, homeshow.io
+#
+# All rights reserved - Do Not Redistribute
+#
+
 apt_package 'libpq-dev'
 
 include_recipe 'postgresql::server'
@@ -7,18 +17,25 @@ gem_package 'pg' do
   gem_binary node['ruby']['gempath']
 end
 
+user node['postgresql']['dbuser']  do
+  password node['postgresql']['password']['postgres']
+end
+
+execute 'postgres_pass_alter' do
+  command "sudo -u postgres psql -c \"ALTER ROLE postgres PASSWORD \'puggle42\';\""
+end
+
 postgresql_connection_info = {
   :host     => '127.0.0.1',
   :port     => 5432,
   :username => node['postgresql']['dbuser'],
-  :password => node['postgresql']['password']['postgres']
+  :password => 'puggle42'
 }
 
 postgresql_database_user node['postgresql']['dbuser'] do
   connection    postgresql_connection_info
-  database_name node['postgresql']['dbname']
   privileges    [:all]
-  action        :grant
+  action        :create
 end
 
 postgresql_database node['postgresql']['dbname'] do
@@ -26,7 +43,9 @@ postgresql_database node['postgresql']['dbname'] do
     :host     => '127.0.0.1',
     :port     => 5432,
     :username => node['postgresql']['dbuser'],
-    :password => node['postgresql']['password']['postgres']
+    :password => 'puggle42'
   )
   action :create
 end
+
+

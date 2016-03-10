@@ -3,7 +3,7 @@
 # Recipe:: apt-update
 # Author:: Cameron Testerman - camerontesterman@hotmail.com
 #
-# Copyright 2016, GoShow.io
+# Copyright 2016, homeshow.io
 #
 # All rights reserved - Do Not Redistribute
 #

@@ -1,3 +1,13 @@
+#
+# Cookbook Name:: rails-node
+# Recipe:: add-user
+# Author:: Cameron Testerman - camerontesterman@hotmail.com
+#
+# Copyright 2016, homeshow.io
+#
+# All rights reserved - Do Not Redistribute
+#
+
 execute 'logindefs' do
   command "echo \"CREATE_HOME yes\" >> /etc/login.defs" 
 end

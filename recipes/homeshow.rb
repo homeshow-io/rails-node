@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: rails-node
-# Recipe:: rbenv
+# Recipe:: homeshow
 # Author:: Cameron Testerman - camerontesterman@hotmail.com
 #
 # Copyright 2016, homeshow.io
@@ -8,5 +8,6 @@
 # All rights reserved - Do Not Redistribute
 #
 
-include_recipe "rbenv::default"
-include_recipe "rbenv::ruby_build"
+#This recipe will setup the homeshow directory and clone the homeshow rails/ember repo
+#into the homeshow directory.
+
