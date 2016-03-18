@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: rails-node
-# Recipe:: homeshow
+# Recipe:: ember-cli
 # Author:: Cameron Testerman - camerontesterman@hotmail.com
 #
 # Copyright 2016, homeshow.io
@@ -8,6 +8,13 @@
 # All rights reserved - Do Not Redistribute
 #
 
-#This recipe will setup the homeshow directory and clone the homeshow rails/ember repo
-#into the homeshow directory.
+include_recipe 'nodejs'
+
+nodejs_npm 'bower' do
+  options ['-g']
+end
+
+gem_package 'bower-rails' do
+  gem_binary node['ruby']['gempath']
+end
 

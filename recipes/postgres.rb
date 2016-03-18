@@ -32,7 +32,7 @@ postgresql_connection_info = {
   :password => 'puggle42'
 }
 
-postgresql_database_user node['postgresql']['dbuser'] do
+postgresql_database_user 'homeshow' do
   connection    postgresql_connection_info
   privileges    [:all]
   action        :create
